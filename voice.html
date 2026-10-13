@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Call For Rex Appa ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Trebuchet MS', sans-serif;
+    background: linear-gradient(145deg, #170d2b, #54204e, #b83270);
+    color: white;
+    text-align: center;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 25px 18px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.page.active {
+    display: flex;
+    animation: appear 0.7s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.phone {
+    width: min(100%, 360px);
+    padding: 35px 22px;
+    border: 2px solid #ffffff35;
+    border-radius: 35px;
+    background: #ffffff12;
+    box-shadow: 0 0 35px #ff60b655;
+}
+
+.heart {
+    font-size: 65px;
+    animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.12); }
+}
+
+h1 {
+    color: #ffb8df;
+    font-size: 28px;
+}
+
+.name {
+    font-size: 23px;
+    font-weight: bold;
+    margin: 18px 0 8px;
+}
+
+.sub {
+    color: #f4d9ed;
+    line-height: 1.7;
+}
+
+.call-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin-top: 38px;
+}
+
+.call-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.call-btn {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    font-size: 25px;
+}
+
+.answer {
+    background: #27c96b;
+    animation: glow 1.5s infinite;
+}
+
+.decline {
+    background: #f04460;
+}
+
+@keyframes glow {
+    50% { box-shadow: 0 0 24px #27c96b; }
+}
+
+.main-btn {
+    background: linear-gradient(120deg, #ff4f9a, #a64dff);
+    padding: 14px 25px;
+    border-radius: 30px;
+    margin-top: 25px;
+    box-shadow: 0 5px 20px #ff4f9a44;
+}
+
+.message {
+    width: min(100%, 520px);
+    padding: 25px;
+    border-radius: 25px;
+    background: #ffffff16;
+    border: 1px solid #ffffff30;
+    line-height: 1.9;
+    font-size: 17px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.status {
+    color: #ffd0e8;
+    margin-top: 22px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: INCOMING CALL -->
+
+<section id="callPage" class="page active">
+
+    <div class="phone">
+
+        <div class="heart">💗</div>
+
+        <h1>Incoming Call</h1>
+
+        <div class="name">Your Favourite Person ❤️</div>
+
+        <p class="sub">
+            Rex Appa-ku oru special call! 🥹<br>
+            Someone has a message for you...
+        </p>
+
+        <div class="call-buttons">
+
+            <div class="call-option">
+                <button class="call-btn decline"
+                        onclick="declineCall()">
+                    ✕
+                </button>
+                <span>Decline</span>
+            </div>
+
+            <div class="call-option">
+                <button class="call-btn answer"
+                        onclick="answerCall()">
+                    ❤
+                </button>
+                <span>ANSWER</span>
+            </div>
+
+        </div>
+
+        <p id="callStatus" class="status">
+            Tap ANSWER to receive your surprise 💌
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 2: VOICE MESSAGE -->
+
+<section id="voicePage" class="page">
+
+    <div class="heart">🫂</div>
+
+    <h1>Call Connected! ❤️</h1>
+
+    <p class="sub">
+        Rex Appa, someone recorded this just for you... 🥹
+    </p>
+
+    <!-- Replace myvoice.mp3 with your audio filename -->
+    <audio id="myVoice" controls perload="auto">
+        <source src="21.mp4" type="video/mp4">
+    </audio>
+
+    <button class="main-btn" id="playBtn"
+            onclick="playVoice()">
+        ▶ Play My Voice Again 🎙️
+    </button>
+
+    <p id="audioStatus" class="status">
+        Your special voice message is ready ❤️
+    </p>
+
+    <div id="loveMessage" class="message hidden">
+
+        <h2>Rex Appa 🥹❤️</h2>
+
+        Indha voice message unakkaga mattum dhaan. 💗
+
+        Un birthday-va special-ah maatha naan create panna
+        chinna surprise idhu.
+
+        Un dreams ellame nijamaaganum.
+        Nee eppovum happy-ah irukkanum.
+        Namma rendu perum pesi purinjukittu,
+        neraya beautiful memories create pannanum. 🫂
+
+        <br><br>
+
+        <strong>
+            Happy Birthday, My Rex Appa! ❤️♾️
+        </strong>
+
+    </div>
+
+    <button class="main-btn" onclick="location.href='last.html'">
+        Surprise Completed ❤️ 
+    </button>
+
+</section>
+
+
+<script>
+const voice = document.getElementById("myVoice");
+
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function answerCall() {
+    showPage("voicePage");
+    playVoice();
+}
+
+function playVoice() {
+    voice.play().then(function() {
+        document.getElementById("audioStatus").textContent =
+            "Playing your voice message... ❤️";
+    }).catch(function() {
+        document.getElementById("audioStatus").textContent =
+            "Voice play aagala. Audio filename and format check pannu.";
+    });
+}
+
+voice.addEventListener("ended", function() {
+    document.getElementById("loveMessage").classList.remove("hidden");
+
+    document.getElementById("audioStatus").textContent =
+        "Message delivered with love! 💗";
+});
+
+function declineCall() {
+    document.getElementById("callStatus").textContent =
+        "Rex Appa, indha special call-ah answer pannu! 🥹❤️";
+}
+
+function goNext() {
+    // Change nextpage.html to your actual next page filename.
+    window.location.href = "nextpage.html";
+}
+</script>
+
+</body>
+</html>
