@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise For You 💖</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;450;600&family=Sacramento&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti Library for Winning Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            user-select: none;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating Background Hearts */
+        .hearts-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bg-heart {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            bottom: -20px;
+            transform: rotate(45deg);
+            animation: floatUp 6s linear infinite;
+        }
+
+        .bg-heart::before,
+        .bg-heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+        }
+
+        .bg-heart::before { top: -10px; left: 0; }
+        .bg-heart::after { left: -10px; top: 0; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(45deg) scale(0.6); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(45deg) scale(1.2); opacity: 0; }
+        }
+
+        /* Container Card */
+        .container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 380px;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease-in-out;
+        }
+
+        /* LOGIN PAGE */
+        #login-section h2 {
+            font-family: 'Sacramento', cursive;
+            font-size: 45px;
+            color: #d63384;
+            margin-bottom: 5px;
+        }
+
+        #login-section p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            color: #444;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            font-size: 14px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #ff4b6e;
+            box-shadow: 0 0 8px rgba(255, 75, 110, 0.2);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: linear-gradient(135deg, #ff4b6e 0%, #ff758c 100%);
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 75, 110, 0.4);
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 75, 110, 0.6);
+        }
+
+        .error-msg {
+            color: #ff3333;
+            font-size: 12px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* GAME SECTION */
+        #game-section {
+            display: none;
+        }
+
+        #game-section h2 {
+            font-family: 'Sacramento', cursive;
+            font-size: 42px;
+            color: #d63384;
+            margin-bottom: 5px;
+        }
+
+        .instructions {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Progress & Love Meter */
+        .meter-container {
+            background: #ffe6ea;
+            border-radius: 20px;
+            height: 20px;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid #ffccd5;
+        }
+
+        .meter-fill {
+            background: linear-gradient(90deg, #ff758c, #ff4b6e);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .score-board {
+            font-size: 14px;
+            font-weight: 600;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        /* Catchable Hearts Area */
+        .game-box {
+            width: 100%;
+            height: 220px;
+            background: #fff0f3;
+            border: 2px dashed #ff758c;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .falling-heart {
+            position: absolute;
+            font-size: 30px;
+            cursor: pointer;
+            animation: fall 3s linear forwards;
+        }
+
+        @keyframes fall {
+            0% { top: -40px; }
+            100% { top: 230px; }
+        }
+
+        /* WIN MESSAGE SECTION */
+        #surprise-message {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* NEXT PAGE SECTION */
+        #next-section {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        #next-section h2 {
+            font-family: 'Sacramento', cursive;
+            font-size: 42px;
+            color: #d63384;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .heart-icon {
+            font-size: 50px;
+            color: #ff4b6e;
+            animation: heartbeat 1.2s infinite;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
+
+        .love-card {
+            background: #fff0f3;
+            border-left: 4px solid #ff4b6e;
+            padding: 12px 15px;
+            font-size: 13px;
+            color: #444;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: left;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Hearts -->
+    <div class="hearts-bg" id="hearts-container"></div>
+
+    <div class="container" id="main-card">
+        
+        <!-- 1. LOGIN SECTION -->
+        <div id="login-section">
+            <h2>Special Login</h2>
+            <p>Enter our secret code to unlock my heart ❤️</p>
+            
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Enter username...">
+            </div>
+            
+            <div class="input-group">
+                <label>Secret Password</label>
+                <input type="password" id="password" placeholder="Enter password...">
+            </div>
+
+            <button class="btn" onclick="checkLogin()">Open My Surprise ✨</button>
+            <div class="error-msg" id="error-msg">Oops! Wrong username or password 🥺</div>
+        </div>
+
+        <!-- 2. GAME & SURPRISE SECTION -->
+        <div id="game-section">
+            
+            <!-- GAME SCREEN -->
+            <div id="game-play">
+                <h2>Catch My Love 💕</h2>
+                <p class="instructions">Click on 10 falling hearts to fill the Love Meter!</p>
+                
+                <div class="score-board">Love Meter: <span id="score">0</span> / 10 Hearts</div>
+                
+                <div class="meter-container">
+                    <div class="meter-fill" id="meter-fill"></div>
+                </div>
+
+                <div class="game-box" id="game-box"></div>
+            </div>
+
+            <!-- GAME WIN MESSAGE WITH NEXT BUTTON -->
+            <div id="surprise-message">
+                <div class="heart-icon">❤️</div>
+                <h2>You Filled My Heart!</h2>
+                <div class="love-card">
+                    <b>Note for Rex Ammu:</b> You are the most special person in my life. Thank you for filling every single day with happiness and love! 🥰
+                </div>
+                <p style="font-size: 13px; color: #555; line-height: 1.5; margin-bottom: 15px;">
+                    You won the game! Click below to go to the next page. 💖
+                </p>
+                <!-- NEXT BUTTON INSTEAD OF PLAY AGAIN -->
+                <button class="btn" onclick="goToNextPage()">Next Page ➔</button>
+            </div>
+
+        </div>
+
+        <!-- 3. NEXT PAGE SECTION -->
+        <div id="next-section">
+            <div class="heart-icon">💖</div>
+            <h2>Next Surprise Page</h2>
+            <div class="love-card">
+                <b>Welcome to the Next Page!</b> Intha page-la ungalukku pidicha content-a (Photos, Memories, etc.) aduthu add pannikalam. 🥰
+            </div>
+            <button class="btn" onclick="location.href='questions.html'">questions game</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Floating Background Hearts
+        function createBgHeart() {
+            const heartsContainer = document.getElementById('hearts-container');
+            const heart = document.createElement('div');
+            heart.classList.add('bg-heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            const size = Math.random() * 15 + 10 + 'px';
+            heart.style.width = size;
+            heart.style.height = size;
+            heartsContainer.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createBgHeart, 400);
+
+        // Login Logic
+        function checkLogin() {
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+
+            const correctUser = "rex ammu"; 
+            const correctPass = "1401";
+
+            if (user === correctUser && pass === correctPass) {
+                errorMsg.style.display = 'none';
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('game-section').style.display = 'block';
+                startGame();
+            } else {
+                errorMsg.style.display = 'block';
+                const card = document.getElementById('main-card');
+                card.style.transform = 'translateX(10px)';
+                setTimeout(() => card.style.transform = 'translateX(-10px)', 100);
+                setTimeout(() => card.style.transform = 'translateX(0)', 200);
+            }
+        }
+
+        // Game Mechanics
+        let score = 0;
+        let gameInterval;
+        const targetScore = 10;
+
+        function startGame() {
+            score = 0;
+            updateMeter();
+            gameInterval = setInterval(spawnHeart, 700);
+        }
+
+        function spawnHeart() {
+            if (score >= targetScore) return;
+
+            const gameBox = document.getElementById('game-box');
+            const heart = document.createElement('div');
+            heart.classList.add('falling-heart');
+            heart.innerHTML = '💖';
+            
+            const maxLeft = gameBox.clientWidth - 35;
+            heart.style.left = Math.random() * maxLeft + 'px';
+
+            heart.onclick = function() {
+                score++;
+                updateMeter();
+                heart.remove();
+
+                if (score >= targetScore) {
+                    clearInterval(gameInterval);
+                    winGame();
+                }
+            };
+
+            gameBox.appendChild(heart);
+
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.remove();
+                }
+            }, 3000);
+        }
+
+        function updateMeter() {
+            document.getElementById('score').innerText = score;
+            const percentage = (score / targetScore) * 100;
+            document.getElementById('meter-fill').style.width = percentage + '%';
+        }
+
+        function winGame() {
+            setTimeout(() => {
+                document.getElementById('game-play').style.display = 'none';
+                document.getElementById('surprise-message').style.display = 'block';
+                
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }, 500);
+        }
+
+        // Navigate to Next Page
+        function goToNextPage() {
+            document.getElementById('game-section').style.display = 'none';
+            document.getElementById('next-section').style.display = 'block';
+        }
+
+        // Reset to Login Page
+        function resetPage() {
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('game-box').innerHTML = '';
+            document.getElementById('surprise-message').style.display = 'none';
+            document.getElementById('game-play').style.display = 'block';
+            document.getElementById('next-section').style.display = 'none';
+            document.getElementById('game-section').style.display = 'none';
+            document.getElementById('login-section').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
