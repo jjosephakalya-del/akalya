@@ -1,0 +1,33 @@
+<!-- ==================== VIDEO SONG PAGE ==================== -->
+<div id="video-page" class="container active">
+    <h2>A Special Song For You 🎵</h2>
+    <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+        Dedicated with lots of love ❤️
+    </p>
+
+    <!-- உங்க வீடியோ ஃபைல் பெயரை (உதா: love_song.mp4) கீழே மாத்திக்கோங்க -->
+    <video id="myLoveVideo" controls width="100%" style="border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+        <source src="12.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Next Button -->
+    <button onclick="location.href='reason.html'" style="background: #ff4757; color: white; border: none; padding: 12px 25px; border-radius: 10px; font-size: 16px; cursor: pointer; width: 100%;">
+        Next ➔
+    </button>
+</div>
+
+<!-- ==================== SCRIPT FOR NEXT BUTTON ==================== -->
+<script>
+    function goToNextPage() {
+        // வீடியோ பிளே ஆயிட்டு இருந்தா அதை Pause பண்ணிடும்
+        const video = document.getElementById('myLoveVideo');
+        if (video) {
+            video.pause();
+        }
+
+        // அடுத்த பேஜ்க்கு போகும் கோட் (உங்க அடுத்த DIV ID-யை 'final-page'-க்கு பதிலா கொடுங்க)
+        document.getElementById('video-page').style.display = 'none';
+        document.getElementById('final-page').style.display = 'block';
+    }
+</script>
