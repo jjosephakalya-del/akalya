@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Rex Appa ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 25px 15px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(135deg, #29051e, #9c245a, #ed82b0);
+}
+
+.page {
+    display: none;
+    max-width: 650px;
+    margin: 20px auto;
+}
+
+.page.active {
+    display: block;
+}
+
+h1 {
+    color: #ffe0ed;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.reason {
+    padding: 18px 10px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid #ffc1dc;
+    border-radius: 18px;
+    cursor: pointer;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.reason .message {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.reason.open {
+    background: #ffe4ef;
+    color: #791843;
+}
+
+.reason.open .message {
+    display: block;
+}
+
+button {
+    padding: 14px 25px;
+    margin: 12px 5px;
+    border: none;
+    border-radius: 30px;
+    background: #ffe0ed;
+    color: #791843;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.letter {
+    padding: 25px 18px;
+    background: #fff0f6;
+    color: #791843;
+    border-radius: 22px;
+    line-height: 1.9;
+}
+
+#birthday {
+    font-size: 45px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: 10 REASONS -->
+
+<div id="reasonsPage" class="page active">
+
+    <div style="font-size:55px;">💗</div>
+
+    <h1>10 Reasons Why I Love You ❤️</h1>
+
+    <p>For my favourite person, Rex Appa 🧸💋</p>
+
+    <p>Ovvoru heart-ah touch panni paaru! 🥹</p>
+
+    <div class="grid">
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 1</b>
+            <div class="message">
+                Un kooda pesumbodhu enna ariyaamale en face-la smile vandhurum. Nee ennaoda happiness🥹❤️
+            </div>
+        </div>
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 2</b>
+            <div class="message">
+                Enna nee love panra vidhame enakku romba special. Chinna chinna vishayathula kooda un love-ah feel panren💗
+            </div>
+        </div>
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 3</b>
+            <div class="message">
+                Un kitta mattum dhaan naan naanaave irukka mudiyum. En feelings-ah un kitta share panna mudiyum🫶
+            </div>
+        </div>
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 4</b>
+            <div class="message">
+                Ennoda bad days-ah kooda better aakkura oru person nee dhaan. Un kooda pesina manasu relax aagum🧸
+            </div>
+        </div>
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 5</b>
+            <div class="message">
+                Un voice kekkuradhu enakku romba pudikkum. Evlo neram pesinaalum innum konjam pesanum nu thonum💋
+            </div>
+        </div>
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 6</b>
+            <div class="message">
+                En feelings-ah explain panna mudiyama ponaalum, nee enna purinjukanum nu aasai paduren🥺
+            </div>
+        </div>
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 7</b>
+            <div class="message">
+                Un kooda irukkura ovvoru memory-um enakku precious. Chinna moments kooda special-ah irukkum📸
+            </div>
+        </div>
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 8</b>
+            <div class="message">
+                Un kooda future-ah imagine panradhu enakku romba happy-ah irukkum. Namma neraya memories create pannanum💞
+            </div>
+        </div>
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 9</b>
+            <div class="message">
+                Sandhoshama irundhaalum kashtama irundhaalum namma rendu perum pesi purinjukittu grow aaganum♾️
+            </div>
+        </div>
+
+        <div class="reason" onclick="reveal(this)">
+            ❤️<br><b>Reason 10</b>
+            <div class="message">
+                Ellathayum vida mukkiyamaana reason enna na, NEE NEEYA IRUKKURADHU DHAAN, REX APPA! ❤️ Unna vera yaar koodayum compare panna mudiyadhu. I love you so much! 🥹
+            </div>
+        </div>
+
+    </div>
+
+    <p>💌 Reasons ellathayum padichittu next page-ku po!</p>
+
+    <button onclick="showPage('letterPage')">
+        Next Page ➜ 💌
+    </button>
+
+</div>
+
+
+<!-- PAGE 2: LOVE LETTER -->
+
+<div id="letterPage" class="page">
+
+    <div style="font-size:55px;">💌</div>
+
+    <h1>One More Surprise For You ❤️</h1>
+
+    <div class="letter">
+
+        <h2>My Rex Appa 🥹💗</h2>
+
+        En life-la nee vandhadhukku apram neraya little
+        moments enakku romba special aayiduchu. Un kooda
+        pesuradhu, sirikkuradhu, chinna chinna vishayangal
+        share panradhu ellame enakku romba precious🫂💗
+
+        <br><br>
+
+        Enakku perfect person venam,
+        <b>enakku nee dhaan venum, Rex Appa!❤️</b>
+
+        <br><br>
+
+        Un kooda neraya beautiful memories create pannanum.
+        Namma rendu perum orutharukku oruthar support-ah
+        irundhu, pesi purinjukittu grow aaganum.
+
+        <br><br>
+
+        Ippo mattum illa, future-layum ovvoru naalum
+        unna choose panra andha ponnu naan dhaan❤️♾️
+        En life-la nee vandhadhukku apram love na enna nu purinjikitten❤️‍🩹 Nee enakku just oru person illa🥹en manasukku kidaicha oru azhagana home😘Unkooda irukkumbodhu dhaan naan complete-ah feel panren🥹🫂
+
+
+        <br>
+
+
+
+        <b>I LOVE YOU SO MUCH, REX APPA! 💋</b>
+
+    </div>
+
+    <button onclick="showPage('birthdayPage')">
+        One More Surprise ➜ 🎁
+    </button>
+
+    <br>
+
+    <button onclick="showPage('reasonsPage')">
+        ⬅ Back
+    </button>
+
+</div>
+
+
+<!-- PAGE 3: BIRTHDAY SURPRISE -->
+
+<div id="birthdayPage" class="page">
+
+    <div id="birthday">🎂💖🎉</div>
+
+    <h1>Happy Birthday, Rex Appa! ❤️</h1>
+
+    <div class="letter">
+
+        <h2>My Favourite Human 🥹</h2>
+
+        Un life-la neraya happiness, success, peace
+        kidaikkanum. Un dreams ellame achieve pannanum.
+        Un face-la irukkura smile eppovume irukkanum💗
+
+        <br><br>
+
+        Un birthday-ku indha chinna surprise kudukkuradhula
+        enakku romba sandhosham.
+
+        <br><br>
+
+        <b>
+            Happy Birthday, My Rex Appa!🎂💋
+            <br><br>
+            You are special to me, always and forever❤️♾️
+        </b>
+
+    </div>
+     <button onclick="location.href='promises.html'">Next page</button>
+</div>
+
+
+<script>
+
+function reveal(card) {
+    card.classList.add("open");
+}
+
+function showPage(pageId) {
+
+    document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
