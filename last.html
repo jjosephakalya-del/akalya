@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Rex Appa ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #18000c;
+    color: white;
+    text-align: center;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 30px 16px 45px;
+    background: linear-gradient(145deg, #18000c, #71002d, #24000f);
+    animation: fadeIn 0.7s ease;
+}
+
+#lovePage {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    color: #ffb6ce;
+    font-size: 30px;
+}
+
+h2 {
+    color: #ffb6ce;
+}
+
+.subtitle {
+    color: #ffd6e2;
+    line-height: 1.8;
+}
+
+.heart {
+    font-size: 48px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.15); }
+}
+
+.card {
+    max-width: 460px;
+    margin: 25px auto;
+    padding: 24px 17px;
+    border: 1px solid #ff91b5;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 0 25px #ff477e33;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 25px 0;
+}
+
+.time-box {
+    min-width: 65px;
+    padding: 14px 8px;
+    border: 1px solid #ff91b5;
+    border-radius: 12px;
+    background: #4b001f;
+}
+
+.time-box span {
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff9dbd;
+}
+
+.time-box small {
+    display: block;
+    margin-top: 7px;
+    font-size: 11px;
+}
+
+.forever {
+    color: #ffc1d5;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+button {
+    padding: 14px 27px;
+    margin-top: 15px;
+    border: 1px solid #ffc1d5;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff477e, #ff91b5);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 18px #ff477e55;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.letter {
+    text-align: left;
+    line-height: 2;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    color: #fff0f5;
+    font-size: 16px;
+}
+
+.letter h2 {
+    text-align: center;
+}
+
+.letter-title {
+    text-align: center;
+    color: #ffb6ce;
+}
+
+.divider {
+    height: 1px;
+    background: #ff91b5;
+    margin: 23px 0;
+}
+
+.back-btn {
+    background: #650029;
+}
+
+.footer {
+    color: #ffc1d5;
+    margin-top: 25px;
+    line-height: 1.8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: LOVE TIMELINE -->
+<section id="lovePage" class="page">
+
+    <div class="heart">❤️</div>
+
+    <h1>Our Love Story ♾️</h1>
+
+    <p class="subtitle">
+        Every love story is beautiful,<br>
+        but ours is my favourite. 💗
+    </p>
+
+    <div class="card">
+
+        <p>THE DAY MY FOREVER BEGAN 💌</p>
+
+        <h2>24 January 2026</h2>
+
+        <p class="subtitle">
+            The day our beautiful journey began.
+            You became my favourite person,
+            my happiness, and my sweetest reason to smile. 🥹🫂
+        </p>
+
+        <div class="divider"></div>
+
+        <h2>Our Time Together ❤️</h2>
+
+        <div class="counter">
+
+            <div class="time-box">
+                <span id="days">0</span>
+                <small>Days</small>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>Hours</small>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>Minutes</small>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>Seconds</small>
+            </div>
+
+        </div>
+
+        <p class="forever">
+            Every second, I choose you again. ❤️♾️
+        </p>
+
+    </div>
+
+    <p class="footer">
+        Our story has only just begun... 💋
+    </p>
+
+    <button onclick="showPage('messagePage')">
+        Next Page 💌 ➜
+    </button>
+
+</section>
+
+
+<!-- PAGE 2: EMOTIONAL MESSAGE -->
+<section id="messagePage" class="page">
+
+    <div class="heart">💖</div>
+
+    <h1>One More Thing, Rex Appa 🥹</h1>
+
+    <p class="subtitle">
+        There is something my heart wants you to know. ❤️
+    </p>
+
+    <div class="card">
+
+        <p class="letter">
+My love, ❤️
+
+Before you came into my life, I never knew that one person could mean so much to me.
+
+You are not just someone I love. You are the person I want beside me through all the little moments and all the big dreams of life.
+
+If I could go back to the beginning and choose all over again, I would still choose you. Every single time. 💗
+
+This is only the beginning of our story. I want to make so many more memories with you, one day at a time. ♾️
+        </p>
+
+    </div>
+
+    <button onclick="showPage('lastSurprise')">
+        One Last Surprise 🎁❤️
+    </button>
+
+    <br>
+
+    <button class="back-btn" onclick="showPage('lovePage')">
+        ← Back to Timeline
+    </button>
+
+</section>
+
+
+<!-- PAGE 3: ONE LAST SURPRISE -->
+<section id="lastSurprise" class="page">
+
+    <div class="heart">💌</div>
+
+    <h1>One Last Surprise ❤️</h1>
+
+    <p class="subtitle">
+        A little message from my heart, just for you. 🥹🫂
+    </p>
+
+    <div class="card letter">
+
+        <h2 class="letter-title">My Rex Appa ❤️🥹🫂</h2>
+
+        <p>Unna en life-la meet pannadhu enakku kidaicha beautiful-aana feeling🫂 Nee enakku boyfriend mattum illa, en happiness, en comfort, en favourite person, en manasukku romba nerukkamaana oruthan🥹🫂💗Un kooda pesura chinna chinna moments kooda enakku romba special🥹Namma life-la ellame perfect-ah irukkaadhu. Sila neram sanda varum, misunderstandings varum, kovam varum Aana andha moments-la kooda namma rendu perum oruthara oruthar purinjikittu, namma love-ah protect pannanum nu dhaan en aasai🫂💎❤️Enakku expensive gifts-um perfect words-um thevai illa😘Nee enna genuinely love pannanum💎en feelings-ah purinjikanum❤️‍🩹en kooda honest-ah irukkanum🥰Adhu podhum enakku🥹Un happiness-la naan irukkanum, un kashtathula unakku support-ah irukkanum🌍💎I don't want to love you only on your best days. I want to understand you on your difficult days too🕊️🫶🏻</p>
+
+        <p>En future eppadi irundhaalum, adhulaye un kooda beautiful memories create pannanum🥹💓 Oru naal namma past-ah thirumbi paathu, “Evlo problems vandhaalum namma rendu perum serndhu overcome pannitom” nu smile pannanum😁🤍I love you so much, Rex Appa❤️‍🩹🥹Nee en life-la irukkuradhu enakku romba special. Always choose love, understanding, honesty and respect… namma rendu perukkum idhuve beautiful-aana love story-ah irukkattum🥹💋</p>
+
+        <div class="divider"></div>
+
+        <h2 class="letter-title">Forever & Always ❤️♾️</h2>
+
+        <p style="text-align:center;">
+            With all my love,<br>
+            Yours forever 💋🫂
+        </p>
+
+    </div>
+
+    <p class="footer">
+        No matter how many pages this story has,<br>
+        you will always be special to me. ❤️
+    </p>
+
+    <button class="back-btn" onclick="showPage('messagePage')">
+        ← Back
+    </button>
+
+</section>
+
+
+<script>
+
+// LIVE LOVE COUNTER
+function updateLoveCounter() {
+
+    // 24 January 2026, 12:00 AM
+    const startDate = new Date(2026, 0, 24, 0, 0, 0);
+    const now = new Date();
+
+    const difference = Math.max(
+        0,
+        now.getTime() - startDate.getTime()
+    );
+
+    const totalSeconds = Math.floor(difference / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("days").textContent = days;
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateLoveCounter();
+setInterval(updateLoveCounter, 1000);
+
+
+// PAGE NAVIGATION
+function showPage(pageId) {
+
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+        page.style.display = "none";
+    });
+
+    document.getElementById(pageId).style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
