@@ -1,0 +1,101 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Special Song For You ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffb6c9, #ffe6ef);
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 25px 18px;
+    box-sizing: border-box;
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px #b34d7540;
+}
+
+h2 {
+    color: #d81b60;
+}
+
+p {
+    color: #666;
+    line-height: 1.6;
+}
+
+video {
+    width: 100%;
+    border-radius: 15px;
+    margin: 15px 0 20px;
+    background: black;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #ff4757;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e83248;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="video-page">
+
+    <h2>A Special Song For You 🎵</h2>
+
+    <p>
+        Dedicated with lots of love to my Rex Appa ❤️🫂
+    </p>
+
+    <video id="myLoveVideo" controls playsinline>
+        <source src="11.mp4" type="video/mp4">
+        Your browser does not support this video.
+    </video>
+
+    <button onclick="goToNextPage()">
+        Next ➔ ❤️
+    </button>
+
+</div>
+
+<script>
+function goToNextPage() {
+    const video = document.getElementById("myLoveVideo");
+
+    if (video) {
+        video.pause();
+    }
+
+    window.location.href = "video2.html";
+}
+</script>
+
+</body>
+</html>
+```
